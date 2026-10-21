@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">PracticalFive</string>
+    <string name="app_name">Chinese Municipalities</string>
+    <string name="title_main">Municipalities in China</string>
+    <string name="hint_input">I want to know about:</string>
+    <string name="input_hint">name of a municipality</string>
+    <string name="btn_visit">Visit site</string>
+    <string name="error_empty">Input cannot be empty!</string>
+    <string name="error_invalid_city">Invalid municipality name!</string>
+    <string name="error_no_browser">No app can open this webpage</string>
+
 </resources>
