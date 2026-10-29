@@ -27,14 +27,34 @@ public class Municipality extends AppCompatActivity {
         Intent intent = getIntent();
         String cityName = intent.getStringExtra("city_name");
 
-        if(cityName != null){
+        if (cityName != null) {
             tvTitle.setText(cityName);
-            tvInfo.setText("This is information about " + cityName + ".");
-        }
+            switch (cityName) {
+                case "Beijing":
+                    tvInfo.setText("Beijing is the capital of China.");
+                    ivCity.setImageResource(R.drawable.beijing);
+                    break;
+                case "Shanghai":
+                    tvInfo.setText("Shanghai is an international financial center.");
+                    ivCity.setImageResource(R.drawable.shanghai);
+                    break;
+                case "Tianjin":
+                    tvInfo.setText("Tianjin is a northern port city.");
+                    ivCity.setImageResource(R.drawable.tianjin);
+                    break;
+                case "Chongqing":
+                    tvInfo.setText("Chongqing is a famous mountain city.");
+                    ivCity.setImageResource(R.drawable.chongqing);
+                    break;
+                default:
+                    tvInfo.setText("This is information about " + cityName + ".");
+                    break;
+            }
 
-        btnVisit.setOnClickListener(v -> {
-            Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.baidu.com"));
-            startActivity(webIntent);
-        });
+            btnVisit.setOnClickListener(v -> {
+                Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.baidu.com"));
+                startActivity(webIntent);
+            });
+        }
     }
 }
