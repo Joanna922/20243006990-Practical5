@@ -1,24 +1,40 @@
 package com.example.practicalfive;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class Municipality extends AppCompatActivity {
+
+    private TextView tvTitle, tvInfo;
+    private ImageView ivCity;
+    private Button btnVisit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_municipality);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+        tvTitle = findViewById(R.id.tv_city_title);
+        tvInfo = findViewById(R.id.tv_info_text);
+        ivCity = findViewById(R.id.img_city);
+        btnVisit = findViewById(R.id.btn_visit_web);
+
+        Intent intent = getIntent();
+        String cityName = intent.getStringExtra("city_name");
+
+        if(cityName != null){
+            tvTitle.setText(cityName);
+            tvInfo.setText("This is information about " + cityName + ".");
+        }
+
+        btnVisit.setOnClickListener(v -> {
+            Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.baidu.com"));
+            startActivity(webIntent);
         });
     }
 }
