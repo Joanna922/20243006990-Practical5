@@ -31,27 +31,42 @@ public class Municipality extends AppCompatActivity {
 
         if (cityName != null) {
             tvTitle.setText(cityName);
+            int themeColor;
             switch (cityName) {
                 case "Beijing":
                     tvInfo.setText("Beijing is the capital of China.");
                     ivCity.setImageResource(R.drawable.beijing);
+                    themeColor = getColor(R.color.municipality_beijing);
                     break;
                 case "Shanghai":
                     tvInfo.setText("Shanghai is an international financial center.");
                     ivCity.setImageResource(R.drawable.shanghai);
+                    themeColor = getColor(R.color.municipality_shanghai);
                     break;
                 case "Tianjin":
                     tvInfo.setText("Tianjin is a northern port city.");
                     ivCity.setImageResource(R.drawable.tianjin);
+                    themeColor = getColor(R.color.municipality_tianjin);
                     break;
                 case "Chongqing":
                     tvInfo.setText("Chongqing is a famous mountain city.");
                     ivCity.setImageResource(R.drawable.chongqing);
+                    themeColor = getColor(R.color.municipality_chongqing);
                     break;
                 default:
                     tvInfo.setText("This is information about " + cityName + ".");
+                    themeColor = getColor(R.color.color_default_background);
                     break;
             }
+
+            tvTitle.setBackgroundColor(themeColor);
+            tvTitle.setTextColor(getColor(R.color.color_text_light));
+
+            tvInfo.setTextColor(themeColor);
+
+            btnVisit.setBackgroundColor(themeColor);
+            btnVisit.setTextColor(getColor(R.color.color_text_light));
+        }
 
             btnVisit.setOnClickListener(v -> {
                 String url;
@@ -83,4 +98,4 @@ public class Municipality extends AppCompatActivity {
             });
         }
     }
-}
+

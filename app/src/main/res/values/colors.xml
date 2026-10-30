@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="municipality_beijing">#D62828</color>
-    <color name="municipality_shanghai">#C70080</color>
-    <color name="municipality_tianjin">#333333</color>
-    <color name="municipality_chongqing">#FF7800</color>
+    <color name="municipality_beijing">#D82626</color>
+    <color name="municipality_shanghai">#D82690</color>
+    <color name="municipality_tianjin">#3A3A3A</color>
+    <color name="municipality_chongqing">#FF8822</color>
 
     <color name="color_text_light">#FFFFFF</color>
     <color name="color_text_dark">#121212</color>
