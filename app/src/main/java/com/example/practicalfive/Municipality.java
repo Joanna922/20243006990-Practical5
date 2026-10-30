@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.content.ActivityNotFoundException;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Municipality extends AppCompatActivity {
@@ -52,8 +54,32 @@ public class Municipality extends AppCompatActivity {
             }
 
             btnVisit.setOnClickListener(v -> {
-                Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.baidu.com"));
-                startActivity(webIntent);
+                String url;
+                switch (cityName) {
+                    case "Beijing":
+                        url = "https://www.beijing.gov.cn";
+                        break;
+                    case "Shanghai":
+                        url = "https://www.shanghai.gov.cn";
+                        break;
+                    case "Tianjin":
+                        url = "https://www.tj.gov.cn";
+                        break;
+                    case "Chongqing":
+                        url = "https://www.cq.gov.cn";
+                        break;
+                    default:
+                        url = "https://www.baidu.com";
+                }
+
+                Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                webIntent.addCategory(Intent.CATEGORY_BROWSABLE);
+
+                try {
+                    startActivity(webIntent);
+                } catch (ActivityNotFoundException e) {
+                    Toast.makeText(Municipality.this, "No suitable browser found", Toast.LENGTH_SHORT).show();
+                }
             });
         }
     }
